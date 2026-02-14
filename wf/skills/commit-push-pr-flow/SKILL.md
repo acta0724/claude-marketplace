@@ -8,7 +8,6 @@ model: haiku
 
 Commit, push, and open a pr
 
-- まず変更内容を確認し、複数の目的が混在している場合は process-commit を呼び出してコミットを分割すること
 - create branch(if current branch in default) and pr
 - following pr template
 - description in japanese
