@@ -8,6 +8,7 @@ model: haiku
 
 Commit, push, and open a pr
 
+- まず verification-loop を実行し、全て PASS であることを確認すること
 - create branch(if current branch in default) and pr
 - following pr template
 - description in japanese
