@@ -1,0 +1,15 @@
+{
+  "name": "iwasakatsuya-marketplace",
+  "description": "Personal Claude Code plugins for PR workflow",
+  "version": "1.0.0",
+  "owner": {
+    "name": "iwasakatsuya"
+  },
+  "plugins": [
+    {
+      "name": "wf",
+      "source": "./wf",
+      "description": "PR management commands and code review agents"
+    }
+  ]
+}
