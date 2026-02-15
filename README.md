@@ -55,10 +55,10 @@ vibe-kanban MCP と連携したプロジェクト・Issue 管理ツール。
 
 | スキル | 説明 | トリガー |
 |--------|------|----------|
-| `board` | Issue 一覧をステータス別に表示 | `board`, `ボード` |
-| `plan-issues` | 要件を分析し Issue に分解・登録 | `plan`, `要件分解` |
-| `pick-issue` | Issue を選択して作業開始 | `pick`, `issue着手` |
-| `close-issue` | Issue を Done に更新 | `close issue`, `issue完了` |
+| `board` | Issue 一覧をステータス別に表示 | `board`, `issues`, `kanban`, `ボード` |
+| `plan-issues` | 要件を分析し Issue に分解・登録 | `plan`, `decompose`, `要件分解`, `issue作成` |
+| `pick-issue` | Issue を選択して作業開始 | `pick`, `start issue`, `take issue`, `issue着手` |
+| `close-issue` | Issue を Done に更新 | `close issue`, `done`, `issue完了` |
 
 #### ワークフロー
 
