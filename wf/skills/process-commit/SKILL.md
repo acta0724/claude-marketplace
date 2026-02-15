@@ -82,7 +82,7 @@ git commit -m "$COMMIT_MSG"
 ### Step 6: クリーンアップ
 
 ```bash
-# 一時ファイルの削除（スキリプト終了時に確実に削除）
+# 一時ファイルの削除（スクリプト終了時に確実に削除）
 trap 'rm -f .claude/tmp/current_changes.patch' EXIT
 
 # または、処理完了後に明示的に削除
