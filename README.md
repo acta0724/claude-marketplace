@@ -47,7 +47,7 @@ worktree → 実装 → verification-loop → commit-push-pr-flow → review-flo
                                                                 └── fixci
 ```
 
-### vibe-kanban (v1.0.0)
+### vibe-kanban (v1.1.0)
 
 vibe-kanban MCP と連携したプロジェクト・Issue 管理ツール。
 
@@ -59,9 +59,25 @@ vibe-kanban MCP と連携したプロジェクト・Issue 管理ツール。
 | `plan-issues` | 要件を分析し Issue に分解・登録 | `plan`, `要件分解` |
 | `pick-issue` | Issue を選択して作業開始 | `pick`, `issue着手` |
 | `close-issue` | Issue を Done に更新 | `close issue`, `issue完了` |
+| `run-team` | 全 Issue をエージェントチームで一括実行 | `run team`, `チーム実行` |
+
+#### エージェント
+
+| エージェント | 説明 |
+|-------------|------|
+| `issue-executor` | Issue の実装・テスト・PR 作成を自律実行 |
 
 #### ワークフロー
 
+```
+plan-issues → board → run-team (Supervisor)
+                         ├── Executor-1 → Issue-1 実装 → PR
+                         ├── Executor-2 → Issue-2 実装 → PR
+                         └── Executor-N → Issue-N 実装 → PR
+                      → board (結果確認)
+```
+
+手動実行の場合:
 ```
 plan-issues → board → pick-issue → (wf で実装) → close-issue
 ```
