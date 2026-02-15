@@ -1,0 +1,20 @@
+{
+  "name": "acta-marketplace",
+  "description": "Personal Claude Code plugins for PR workflow",
+  "version": "1.0.0",
+  "owner": {
+    "name": "iwasakatsuya"
+  },
+  "plugins": [
+    {
+      "name": "wf",
+      "source": "./wf",
+      "description": "PR management commands and code review agents"
+    },
+    {
+      "name": "vibe-kanban",
+      "source": "./vibe-kanban",
+      "description": "Project and issue management with vibe-kanban MCP"
+    }
+  ]
+}
