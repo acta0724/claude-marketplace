@@ -29,10 +29,17 @@ git-sequential-stage -patch="path/to/changes.patch" \
 ### Step 1: 差分を取得
 
 ```bash
-git ls-files --others --exclude-standard | xargs git add -N
+# .claude/tmp ディレクトリの作成と権限設定
+mkdir -p .claude/tmp
+chmod 700 .claude/tmp
 
-# より安定した位置特定のため
+git ls-files --others --exclude-standard | while IFS= read -r file; do
+  git add -N "$file"
+done
+
+# より安定した位置特定のため（一時ファイルのアクセス権限を制限）
 git diff HEAD > .claude/tmp/current_changes.patch
+chmod 600 .claude/tmp/current_changes.patch
 ```
 
 ### Step 2: 分析
@@ -46,8 +53,11 @@ hunk単位で変更を分析し、最初のコミットに含めるhunkを決定
 # 全体のhunk数
 grep -c "^@@" .claude/tmp/current_changes.patch
 
-# 各ファイルのhunk数
-git diff HEAD --name-only | xargs -I {} sh -c 'printf "%s: " "{}"; git diff HEAD {} | grep -c "^@@"'
+# 各ファイルのhunk数（シェルインジェクション対策）
+git diff HEAD --name-only | while IFS= read -r file; do
+  printf "%s: " "$file"
+  git diff HEAD "$file" | grep -c "^@@"
+done
 ```
 
 ### Step 3: 自動ステージング
@@ -68,6 +78,16 @@ git commit -m "$COMMIT_MSG"
 
 ### Step 4: 繰り返し
 ### Step 5: 最終確認
+
+### Step 6: クリーンアップ
+
+```bash
+# 一時ファイルの削除（スキリプト終了時に確実に削除）
+trap 'rm -f .claude/tmp/current_changes.patch' EXIT
+
+# または、処理完了後に明示的に削除
+rm -f .claude/tmp/current_changes.patch
+```
 
 #### ワイルドカード使用の判断基準
 
