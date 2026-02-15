@@ -14,3 +14,4 @@ model: sonnet
 
 分解結果をユーザーに提示し、承認後 `mcp__vibe_kanban__create_issue` で登録してください。
 登録完了後、`board` スキルでボードを表示すること。
+ボード表示後、`run-team` スキルで全 Issue の一括実行が可能であることを案内すること。
