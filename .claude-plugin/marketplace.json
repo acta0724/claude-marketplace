@@ -10,6 +10,11 @@
       "name": "wf",
       "source": "./wf",
       "description": "PR management commands and code review agents"
+    },
+    {
+      "name": "vibe-kanban",
+      "source": "./vibe-kanban",
+      "description": "Project and issue management with vibe-kanban MCP"
     }
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "name": "vibe-kanban",
+  "version": "1.0.0",
+  "description": "Project and issue management with vibe-kanban MCP integration",
+  "author": {
+    "name": "iwasakatsuya"
+  }
+}
