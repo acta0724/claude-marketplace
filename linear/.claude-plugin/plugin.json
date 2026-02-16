@@ -1,0 +1,11 @@
+{
+  "name": "linear",
+  "version": "1.0.0",
+  "description": "Project and issue management with Linear MCP integration",
+  "author": {
+    "name": "iwasakatsuya"
+  },
+  "agents": [
+    "./agents/issue-executor.md"
+  ]
+}

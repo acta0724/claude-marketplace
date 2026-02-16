@@ -15,6 +15,11 @@
       "name": "vibe-kanban",
       "source": "./vibe-kanban",
       "description": "Project and issue management with vibe-kanban MCP"
+    },
+    {
+      "name": "linear",
+      "source": "./linear",
+      "description": "Project and issue management with Linear MCP"
     }
   ]
 }
