@@ -14,6 +14,7 @@ model: haiku
 ### 1. チーム解決
 `mcp__linear__list_teams` でチーム一覧を取得する。
 - 1つなら自動選択
+- 引数の Identifier（例: TEAM-123）からチームを推測できればそれを使用
 - 複数ならユーザーに選択させる
 
 ### 2. Issue 選択
@@ -22,8 +23,9 @@ model: haiku
 
 ### 3. ステータス更新
 `mcp__linear__list_issue_statuses` でチームのステータス一覧を取得し、type が `started` のステータスを特定する。
+見つからない場合は名前に "Progress" または "Active" を含むステータスを探し、それでも見つからなければ一覧を表示してユーザーに選択させる。
 `mcp__linear__update_issue` で:
-- `state` を started type のステータス名に更新
+- `state` を特定したステータス名に更新
 - `assignee` を "me" に設定
 
 ### 4. worktree 作成
