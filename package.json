@@ -1,0 +1,26 @@
+{
+  "name": "act-9-login",
+  "version": "1.0.0",
+  "description": "Claude Code 用のプラグインマーケットプレイス。",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.2.0",
+    "supertest": "^7.2.2"
+  }
+}
