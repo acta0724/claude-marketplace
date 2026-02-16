@@ -8,6 +8,7 @@ Claude Code 用のプラグインマーケットプレイス。
 /plugin marketplace add acta0724/claude-marketplace
 /plugin install wf@acta-marketplace
 /plugin install vibe-kanban@acta-marketplace
+/plugin install linear@acta-marketplace
 ```
 
 ## プラグイン
@@ -74,6 +75,46 @@ plan-issues → board → run-team (Supervisor)
                          ├── Executor-1 → Issue-1 実装 → PR
                          ├── Executor-2 → Issue-2 実装 → PR
                          └── Executor-N → Issue-N 実装 → PR
+                      → board (結果確認)
+```
+
+手動実行の場合:
+```
+plan-issues → board → pick-issue → (wf で実装) → close-issue
+```
+
+### linear (v1.0.0)
+
+Linear MCP と連携したプロジェクト・Issue 管理ツール。vibe-kanban と同等のワークフローを Linear バックエンドで提供。
+
+#### スキル
+
+| スキル | 説明 | トリガー |
+|--------|------|----------|
+| `board` | Issue 一覧をステータス別に表示 | `board`, `ボード` |
+| `plan-issues` | 要件を分析し Issue に分解・登録 | `plan`, `要件分解` |
+| `pick-issue` | Issue を選択して作業開始 | `pick`, `issue着手` |
+| `close-issue` | Issue を完了ステータスに更新 | `close issue`, `issue完了` |
+| `run-team` | 全 Issue をエージェントチームで一括実行 | `run team`, `チーム実行` |
+
+#### エージェント
+
+| エージェント | 説明 |
+|-------------|------|
+| `issue-executor` | Issue の実装・テスト・PR 作成を自律実行（PR タイトルに Identifier 付与） |
+
+#### 特徴（vibe-kanban との違い）
+- チームのステータスを動的に解決（type ベース: started, completed）
+- Issue Identifier（TEAM-123 形式）をブランチ名・PR タイトルに活用
+- priority, blockedBy による依存関係管理
+
+#### ワークフロー
+
+```
+plan-issues → board → run-team (Supervisor)
+                         ├── Executor-1 → Issue-1 実装 → PR (TEAM-1: ...)
+                         ├── Executor-2 → Issue-2 実装 → PR (TEAM-2: ...)
+                         └── Executor-N → Issue-N 実装 → PR (TEAM-N: ...)
                       → board (結果確認)
 ```
 
