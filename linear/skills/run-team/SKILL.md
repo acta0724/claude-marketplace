@@ -15,12 +15,13 @@ model: sonnet
 ### 1. チーム解決
 `mcp__linear__list_teams` でチーム一覧を取得する。
 - 1つなら自動選択
-- 複数ならユーザーに選択させる
+- 複数なら引数にチーム名があればそれを使用、なければユーザーに選択させる
 
 ### 2. ステータス事前取得
 `mcp__linear__list_issue_statuses` でチームのステータス一覧を取得し、以下を特定する:
-- `started` type → 進行中ステータス名
-- `completed` type → 完了ステータス名
+- `started` type → 進行中ステータス名（見つからなければ名前に "Progress"/"Active" を含むもの）
+- `completed` type → 完了ステータス名（見つからなければ名前に "Done"/"Complete" を含むもの）
+- どちらも見つからない場合はステータス一覧を表示してユーザーに選択させる
 
 ### 3. Issue 一覧取得
 `mcp__linear__list_issues` で未着手（state type が `unstarted` または `backlog`）の Issue を取得する。
@@ -49,6 +50,7 @@ model: sonnet
 各 Issue に対して `Task` ツールで `linear:issue-executor` エージェントを起動する。
 依存関係のない Issue は **並列実行**（1つのメッセージで複数 Task を起動）する。
 依存関係がある場合は先行 Issue 完了後に後続を起動する。
+先行 Issue が失敗した場合、その Issue に依存する後続 Issue は **スキップ** し、理由を記録する。
 
 Task のプロンプトには以下を含める:
 ```
@@ -68,7 +70,7 @@ Task のプロンプトには以下を含める:
 ### 7. 結果回収とステータス更新
 各 Executor の完了後:
 - **成功**: `mcp__linear__update_issue` でステータスを completed type のステータスに更新
-- **失敗**: ステータスは started のまま残し、失敗理由を記録
+- **失敗**: ステータスは started のまま残し、失敗理由を記録。この Issue に依存する後続 Issue もスキップ扱いとする
 
 ### 8. 結果報告
 全 Executor 完了後:
