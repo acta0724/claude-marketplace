@@ -4,7 +4,6 @@
       "Bash(gh api:*)",
       "WebFetch(domain:github.com)",
       "Bash(gh pr view:*)",
-      "mcp__vibe_kanban__list_projects",
       "mcp__linear__list_issues",
       "mcp__linear__list_projects",
       "mcp__linear__create_project",
