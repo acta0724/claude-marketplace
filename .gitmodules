@@ -1,3 +1,0 @@
-[submodule "claude-marketplace"]
-	path = claude-marketplace
-	url = git@github.com:acta0724/claude-marketplace.git
