@@ -27,5 +27,5 @@ model: haiku
 `mcp__linear__update_issue` で `state` を特定したステータス名に更新する。
 
 ### 4. worktree クリーンアップ
-Issue の identifier からブランチ名を推測し、対応する worktree が存在すれば `git worktree remove <path>` で削除する。
-worktree が見つからない場合はスキップする。
+`git worktree list` で一覧を取得し、Issue の identifier を含む worktree が存在すれば `git worktree remove <path>` で削除する。
+該当する worktree が見つからない場合はスキップする。
