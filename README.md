@@ -43,6 +43,8 @@ Git/GitHub のワークフロー自動化ツール。
 
 ```
 worktree → 実装 → verification-loop → commit-push-pr-flow → review-flow
+                                                                ├── code-reviewer
+                                                                ├── security-reviewer
                                                                 ├── qa
                                                                 ├── deslop
                                                                 └── fixci
