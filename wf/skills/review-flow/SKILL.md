@@ -17,11 +17,31 @@ PR $1 について理解しPR authorの身になってペアプロセッショ�
 
 ## Process
 parallelに以下のsubagentsを実行します
-- QA subagent を使用して実際のユースケースを想定した動作確認を行います。
-- deslop subagent を使用して不要なコードを除去し、pushします
-- fixci subagent を使用してCIの問題を修正し、pushします
+- **code-reviewer** subagent を使用してコード品質・パフォーマンス観点のレビューを行います。
+- **security-reviewer** subagent を使用してセキュリティ観点のレビューを行います。
+- **QA** subagent を使用して実際のユースケースを想定した動作確認を行います。
+- **deslop** subagent を使用して不要なコードを除去し、pushします
+- **fixci** subagent を使用してCIの問題を修正し、pushします
 
 ## Output
+
+### Review Summary
+code-reviewer と security-reviewer の結果を統合し、以下のサマリを出力する:
+
+```
+## Review Summary
+
+| Severity | Count | Status |
+|----------|-------|--------|
+| CRITICAL | 0     | pass   |
+| HIGH     | 0     | pass   |
+| MEDIUM   | 0     | -      |
+| LOW      | 0     | -      |
+
+Verdict: APPROVE / WARNING / BLOCK
+```
+
+### Pair Programming Session
 以下の項目を報告し、ペアプロセッションを開始してください。
 - codemap: コードの解説
 - try: 動作確認手順、Shell+Expect
