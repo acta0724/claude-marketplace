@@ -9,6 +9,7 @@
     "./agents/qa.md",
     "./agents/deslop.md",
     "./agents/fixci.md",
-    "./agents/security-reviewer.md"
+    "./agents/security-reviewer.md",
+    "./agents/code-reviewer.md"
   ]
 }
