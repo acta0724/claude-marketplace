@@ -78,6 +78,6 @@ Verdict: WARNING — 2 件の HIGH issue を確認してください。
 
 ## Verdict Rules
 
-- **Approve**: CRITICAL/HIGH の問題なし
-- **Warning**: HIGH のみ（注意して進行可能）
-- **Block**: CRITICAL あり（修正必須）
+- **APPROVE**: CRITICAL/HIGH の問題なし
+- **WARNING**: HIGH のみ（注意して進行可能）
+- **BLOCK**: CRITICAL あり（修正必須）
