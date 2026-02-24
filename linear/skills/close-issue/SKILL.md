@@ -25,3 +25,7 @@ model: haiku
 `mcp__linear__list_issue_statuses` でチームのステータス一覧を取得し、type が `completed` のステータスを特定する。
 見つからない場合は名前に "Done" または "Complete" を含むステータスを探し、それでも見つからなければ一覧を表示してユーザーに選択させる。
 `mcp__linear__update_issue` で `state` を特定したステータス名に更新する。
+
+### 4. worktree クリーンアップ
+`git worktree list` で一覧を取得し、Issue の identifier を含む worktree が存在すれば `git worktree remove <path>` で削除する。
+該当する worktree が見つからない場合はスキップする。

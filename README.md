@@ -59,7 +59,7 @@ Linear MCP と連携したプロジェクト・Issue 管理ツール。
 | `plan-issues` | 要件を分析し Issue に分解・登録 | `plan`, `要件分解` |
 | `pick-issue` | Issue を選択して作業開始 | `pick`, `issue着手` |
 | `close-issue` | Issue を完了ステータスに更新 | `close issue`, `issue完了` |
-| `run-team` | 全 Issue をエージェントチームで一括実行 | `run team`, `チーム実行` |
+| `run-team` | 全 Issue を Worker で並列実行 | `run team`, `チーム実行` |
 
 #### エージェント
 
@@ -75,10 +75,10 @@ Linear MCP と連携したプロジェクト・Issue 管理ツール。
 #### ワークフロー
 
 ```
-plan-issues → board → run-team (Supervisor)
-                         ├── Executor-1 → Issue-1 実装 → PR (TEAM-1: ...)
-                         ├── Executor-2 → Issue-2 実装 → PR (TEAM-2: ...)
-                         └── Executor-N → Issue-N 実装 → PR (TEAM-N: ...)
+plan-issues → board → run-team (Orchestrator)
+                         ├── Worker-1 → Issue-1 実装 → PR (TEAM-1: ...)
+                         ├── Worker-2 → Issue-2 実装 → PR (TEAM-2: ...)
+                         └── Worker-N → Issue-N 実装 → PR (TEAM-N: ...)
                       → board (結果確認)
 ```
 

@@ -5,7 +5,7 @@ tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---
 
 ## Description
-Linear Issue の実装を担当するエグゼキューターエージェントです。
+Linear Issue の実装を担当する Worker エージェントです。
 1つの Issue に対して、コード変更・テスト・コミット・PR作成までを自律的に行います。
 
 ## Input
