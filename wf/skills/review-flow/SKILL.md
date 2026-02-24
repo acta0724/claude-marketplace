@@ -20,8 +20,8 @@ parallelに以下のsubagentsを実行します
 - **code-reviewer** subagent を使用してコード品質・パフォーマンス観点のレビューを行います。
 - **security-reviewer** subagent を使用してセキュリティ観点のレビューを行います。
 - **QA** subagent を使用して実際のユースケースを想定した動作確認を行います。
-- **deslop** subagent を使用して不要なコードを除去し、pushします
-- **fixci** subagent を使用してCIの問題を修正し、pushします
+- **deslop** subagent を使用して不要なコードを除去し、pushします。
+- **fixci** subagent を使用してCIの問題を修正し、pushします。
 
 ## Output
 
